@@ -38,12 +38,18 @@ Purchasing a code signing certificate is very expensive, and on the Windows plat
 
 ## 准备工作 / Quick Usage
 1、破解版数字签名工具，亚洲诚信数字签名专业版破解版(自签时间戳)
+
 2、XCA证书生成工具，证书生成教程链接：https://yhsnlkm.github.io/2019/12/19/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/%E4%BD%BF%E7%94%A8XCA%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6-1/
+
 3、TimestampServer时间戳服务器，签名工具需要链接服务器，服务器需要自制证书才可运行，所以做好步骤1，跟教程做步骤2，接着步骤3部署服务器。注意要点，需要的内容为证书和私钥(到处pem后缀私钥自行更改为key即可)
+
 4、运行时间戳服务器，按照以下步骤进行即可。
+
 个人第二次及之后的步骤简略为：
 先将时间更改为2015年1.1 9:00，编译驱动，原因为VS2022会自动编译驱动和配套的cat安全目录，这里需要cat目录文件的创建时间在签名证书日期内但不能是最早的
+
 更改inf文件：DriverVer = 01/01/2015,1.0.1.0   （Driver version time<=sys/dll Signature time<=CAT creation time<=CAT signature time）
+
 然后修改系统时间为2015年1.1 8:00，打开签名工具签名sys文件，然后修改时间到比cat目录文件的创建时间往后一点点，再签名cat文件。完活
 
 ### 简易使用方法 / Easy Way to Sign Drivers
